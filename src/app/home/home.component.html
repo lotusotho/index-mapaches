@@ -1,0 +1,17 @@
+<h1>
+  Listas de servidores de
+  <span class="rainbow rainbow_text_animated">mapach.es</span>
+</h1>
+<hr class="cs-hr" />
+<div class="container cs-progress-bar">
+  <div [style.width.%]="progress" class="bars"></div>
+</div>
+<div (click)="playSelectAudio(); checkBlogAPIServer()" class="container cs-btn">
+  <h2>Check Server.Mapach.es</h2>
+</div>
+<p>{{ serverStatus }}</p>
+<div (click)="playSelectAudio()" class="container cs-btn">
+  <h2>Servidor SSH</h2>
+  <h3>Puerto 22 - TCP</h3>
+  <a>server.mapach.es:22</a>
+</div>
