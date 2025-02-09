@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /* Function to check all servers at once */
   loadServerCards() {
     this.statusService.getServerCards().subscribe((data: any) => {
       this.serverCards = data;
@@ -75,28 +76,14 @@ export class HomeComponent implements OnInit {
 
   checkAPIStatus() {
     this.resetProgress();
-    Object.keys(this.serverStatusData).forEach((key) => {
-      this.serverStatusData[key] = 'Checking...';
-      this.serverLoading[key] = 0;
-    });
-
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
         this.updateServerStatus(response.body);
-        const allServicesGood = Object.keys(this.serverStatusData).every(
-          (key) => this.serverStatusData[key] === 'Good'
-        );
-        if (allServicesGood) {
-          this.serverStatusData.all = 'The whole server is up and running!';
-        } else {
-          this.serverStatusData.all = 'Server is down!';
-        }
       } else {
         Object.keys(this.serverStatusData).forEach((key) => {
           this.serverStatusData[key] = 'Server is down!';
           this.serverLoading[key] = 100;
         });
-        this.serverStatusData.all = 'Server is down!';
       }
     });
   }
@@ -109,18 +96,12 @@ export class HomeComponent implements OnInit {
   }
 
   private updateServerStatus(statusData: any) {
-    this.serverStatusData.ssh =
-      statusData.ssh.message === 'OK' ? 'Good' : 'Server is down!';
-    this.serverStatusData.postgres =
-      statusData.postgres.message === 'OK' ? 'Good' : 'Server is down!';
-    this.serverStatusData.blogapi =
-      statusData.blogAPI.message === 'OK' ? 'Good' : 'Server is down!';
-    this.serverStatusData.yacht =
-      statusData.yacht.message === 'OK' ? 'Good' : 'Server is down!';
-    this.serverStatusData.easywg =
-      statusData.easyWG.message === 'OK' ? 'Good' : 'Server is down!';
-    this.serverStatusData.webmin =
-      statusData.webmin.message === 'OK' ? 'Good' : 'Server is down!';
+    this.serverStatusData.ssh = statusData.ssh.message;
+    this.serverStatusData.postgres = statusData.postgres.message;
+    this.serverStatusData.blogapi = statusData.blogAPI.message;
+    this.serverStatusData.yacht = statusData.yacht.message;
+    this.serverStatusData.easywg = statusData.easyWG.message;
+    this.serverStatusData.webmin = statusData.webmin.message;
 
     Object.keys(this.serverLoading).forEach((key) => {
       this.serverLoading[key] = 100;
@@ -132,8 +113,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.ssh = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.ssh =
-          response.body.ssh.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.ssh = response.body.ssh.message;
       } else {
         this.serverStatusData.ssh = 'Server is down!';
       }
@@ -146,8 +126,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.postgres = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.postgres =
-          response.body.postgres.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.postgres = response.body.postgres.message;
       } else {
         this.serverStatusData.postgres = 'Server is down!';
       }
@@ -160,8 +139,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.blogapi = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.blogapi =
-          response.body.blogAPI.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.blogapi = response.body.blogAPI.message;
       } else {
         this.serverStatusData.blogapi = 'Server is down!';
       }
@@ -174,8 +152,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.yacht = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.yacht =
-          response.body.yacht.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.yacht = response.body.yacht.message;
       } else {
         this.serverStatusData.yacht = 'Server is down!';
       }
@@ -188,8 +165,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.easywg = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.easywg =
-          response.body.easyWG.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.easywg = response.body.easyWG.message;
       } else {
         this.serverStatusData.easywg = 'Server is down!';
       }
@@ -202,8 +178,7 @@ export class HomeComponent implements OnInit {
     this.serverStatusData.webmin = 'Checking...';
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.webmin =
-          response.body.webmin.message === 'OK' ? 'Good' : 'Server is down!';
+        this.serverStatusData.webmin = response.body.webmin.message;
       } else {
         this.serverStatusData.webmin = 'Server is down!';
       }
