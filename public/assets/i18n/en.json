@@ -4,7 +4,7 @@
     "port": "--",
     "protocol": "TCP",
     "address": "server.mapach.es",
-    "url": "#",
+    "url": "https://server.mapach.es",
     "class": "all-link",
     "key": "all"
   },
