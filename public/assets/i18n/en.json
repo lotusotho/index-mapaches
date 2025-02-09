@@ -4,6 +4,7 @@
     "port": "--",
     "protocol": "TCP",
     "address": "server.mapach.es",
+    "url": "#",
     "key": "all"
   },
   {
@@ -11,6 +12,7 @@
     "port": "22",
     "protocol": "TCP",
     "address": "server.mapach.es:22",
+    "url": "#",
     "key": "ssh"
   },
   {
@@ -18,6 +20,7 @@
     "port": "5432",
     "protocol": "TCP",
     "address": "server.mapach.es:5432",
+    "url": "#",
     "key": "postgres"
   },
   {
@@ -25,6 +28,7 @@
     "port": "3000",
     "protocol": "TCP",
     "address": "server.mapach.es:3000",
+    "url": "https://server.mapach.es:3000",
     "key": "blogapi"
   },
   {
@@ -32,6 +36,7 @@
     "port": "8000",
     "protocol": "TCP",
     "address": "server.mapach.es:8000",
+    "url": "http://server.mapach.es:8000",
     "key": "yacht"
   },
   {
@@ -39,6 +44,7 @@
     "port": "51820",
     "protocol": "UDP",
     "address": "server.mapach.es:51820",
+    "url": "http://server.mapach.es:51821",
     "key": "easywg"
   },
   {
@@ -46,6 +52,7 @@
     "port": "10000",
     "protocol": "TCP",
     "address": "server.mapach.es:10000",
+    "url": "https://server.mapach.es:10000",
     "key": "webmin"
   }
 ]

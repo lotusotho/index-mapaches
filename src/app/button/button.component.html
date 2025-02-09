@@ -5,7 +5,7 @@
 >
   <h2>{{ card.title }}</h2>
   <h3>Port {{ card.port }} - {{ card.protocol }}</h3>
-  <a>{{ card.address }}</a>
+  <a href="{{ card.url }}" target="_blank">{{ card.address }}</a>
   <div class="container cs-progress-bar">
     <div [style.width.%]="serverLoading[card.key]" class="bars"></div>
   </div>
