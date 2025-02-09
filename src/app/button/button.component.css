@@ -5,8 +5,13 @@ a {
 }
 
 .all-link {
-  border: 2px solid orange;
+  border: 2px outset orange;
   background-color: orange;
+  padding: 7px;
+}
+
+.all-container {
+  margin: 15px;
 }
 
 .link {

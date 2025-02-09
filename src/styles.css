@@ -1,7 +1,5 @@
 :root {
-  --bg: linear-gradient(to top, #000000, #000000, #333333, #333333);
-  background-size: cover;
-  background-size: 100% 1px;
+  --bg: orange;
 }
 
 body {
@@ -183,7 +181,7 @@ body {
   pointer-events: none;
 }
 .crt {
-  animation: textShadow 1.6s infinite;
+  animation: textShadow 3s infinite;
   min-height: 100vh;
   position: relative;
 }

@@ -5,14 +5,16 @@
 >
   <h2>{{ card.title }}</h2>
   <h3>Port {{ card.port }} - {{ card.protocol }}</h3>
-  <a
-    *ngIf="card.url !== '#'"
-    [href]="card.url"
-    target="_blank"
-    [ngClass]="card.class"
-    >{{ card.address }}</a
-  >
-  <a *ngIf="card.url === '#'" [ngClass]="card.class">{{ card.address }}</a>
+  <div *ngIf="card.key === 'all'" class="all-container">
+    <a
+      *ngIf="card.url !== '#'"
+      [href]="card.url"
+      target="_blank"
+      [ngClass]="card.class"
+      >{{ card.address }}</a
+    >
+    <a *ngIf="card.url === '#'" [ngClass]="card.class">{{ card.address }}</a>
+  </div>
   <div class="container cs-progress-bar">
     <div [style.width.%]="serverLoading[card.key]" class="bars"></div>
   </div>
