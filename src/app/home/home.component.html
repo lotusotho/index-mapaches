@@ -6,10 +6,9 @@
 <div (click)="playSelectAudio(); checkAPIStatus()" class="container cs-btn">
   <h2>Check Server.Mapach.es (ALL)</h2>
   <div class="container cs-progress-bar">
-    <div [style.width.%]="progress" class="bars"></div>
+    <div [style.width.%]="serverLoading.ssh" class="bars"></div>
   </div>
 </div>
-<p>{{ serverProgress }}</p>
 
 <div (click)="playSelectAudio(); checkSSHStatus()" class="container cs-btn">
   <h2>Servidor SSH</h2>
@@ -20,7 +19,6 @@
   </div>
   <p>{{ serverStatusData.ssh }}</p>
 </div>
-<p>{{ serverProgressData.ssh }}</p>
 
 <div
   (click)="playSelectAudio(); checkPostgresStatus()"
@@ -34,9 +32,8 @@
   </div>
   <p>{{ serverStatusData.postgres }}</p>
 </div>
-<p>{{ serverProgressData.postgres }}</p>
 
-<div (click)="playSelectAudio(); checkBlogAPIStatus()" class="container cs-btn">
+<div (click)="playSelectAudio(); checkBlogapiStatus()" class="container cs-btn">
   <h2>Servidor Blog API</h2>
   <h3>Puerto 3000 - TCP</h3>
   <a>server.mapach.es:3000</a>
@@ -45,7 +42,6 @@
   </div>
   <p>{{ serverStatusData.blogapi }}</p>
 </div>
-<p>{{ serverProgressData.blogapi }}</p>
 
 <div (click)="playSelectAudio(); checkYachtStatus()" class="container cs-btn">
   <h2>Servidor Yacht</h2>
@@ -56,9 +52,8 @@
   </div>
   <p>{{ serverStatusData.yacht }}</p>
 </div>
-<p>{{ serverProgressData.yacht }}</p>
 
-<div (click)="playSelectAudio(); checkEasyWGStatus()" class="container cs-btn">
+<div (click)="playSelectAudio(); checkEasywgStatus()" class="container cs-btn">
   <h2>Servidor Easy-WG</h2>
   <h3>Puerto 51820 - UDP</h3>
   <a>server.mapach.es:51820</a>
@@ -67,7 +62,6 @@
   </div>
   <p>{{ serverStatusData.easywg }}</p>
 </div>
-<p>{{ serverProgressData.easywg }}</p>
 
 <div (click)="playSelectAudio(); checkWebminStatus()" class="container cs-btn">
   <h2>Servidor Webmin</h2>
@@ -78,4 +72,3 @@
   </div>
   <p>{{ serverStatusData.webmin }}</p>
 </div>
-<p>{{ serverProgressData.webmin }}</p>

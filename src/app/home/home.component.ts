@@ -9,9 +9,7 @@ import { StatusService } from '../services/status.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  progress = 0;
-  serverProgress = '';
-  serverStatusData = {
+  serverStatusData: any = {
     ssh: '',
     postgres: '',
     blogapi: '',
@@ -19,15 +17,7 @@ export class HomeComponent {
     easywg: '',
     webmin: '',
   };
-  serverProgressData = {
-    ssh: '',
-    postgres: '',
-    blogapi: '',
-    yacht: '',
-    easywg: '',
-    webmin: '',
-  };
-  serverLoading = {
+  serverLoading: any = {
     ssh: 0,
     postgres: 0,
     blogapi: 0,
@@ -43,84 +33,116 @@ export class HomeComponent {
     selectAudio.play();
   }
 
+  /* Function to check all servers at once */
   checkAPIStatus() {
-    this.progress = 0;
-    this.serverProgress = 'Checking...';
+    this.resetProgress();
     this.statusService.getAPIStatus().subscribe((response: any) => {
       if (response.status === 200) {
-        this.serverStatusData.ssh = response.body.ssh.message;
-        this.serverStatusData.postgres = response.body.postgres.message;
-        this.serverStatusData.blogapi = response.body.blogAPI.message;
-        this.serverStatusData.yacht = response.body.yacht.message;
-        this.serverStatusData.easywg = response.body.easyWG.message;
-        this.serverStatusData.webmin = response.body.webmin.message;
-
-        this.progress = 100;
-        this.serverProgress = 'Server is up and running!';
+        this.updateServerStatus(response.body);
       } else {
-        this.progress = 100;
-        this.serverProgress = 'Server is down!';
+        Object.keys(this.serverStatusData).forEach((key) => {
+          this.serverStatusData[key] = 'Server is down!';
+          this.serverLoading[key] = 100;
+        });
       }
+    });
+  }
+
+  private resetProgress() {
+    Object.keys(this.serverLoading).forEach((key) => {
+      this.serverLoading[key] = 0;
+      this.serverStatusData[key] = 'Checking...';
+    });
+  }
+
+  private updateServerStatus(statusData: any) {
+    this.serverStatusData.ssh = statusData.ssh.message;
+    this.serverStatusData.postgres = statusData.postgres.message;
+    this.serverStatusData.blogapi = statusData.blogAPI.message;
+    this.serverStatusData.yacht = statusData.yacht.message;
+    this.serverStatusData.easywg = statusData.easyWG.message;
+    this.serverStatusData.webmin = statusData.webmin.message;
+
+    Object.keys(this.serverLoading).forEach((key) => {
+      this.serverLoading[key] = 100;
     });
   }
 
   checkSSHStatus() {
     this.serverLoading.ssh = 0;
-    this.serverProgressData.ssh = 'Checking...';
-    this.statusService.getSSHStatus().subscribe((response: any) => {
-      this.serverStatusData.ssh = response.body.message;
+    this.serverStatusData.ssh = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.ssh = response.body.ssh.message;
+      } else {
+        this.serverStatusData.ssh = 'Server is down!';
+      }
       this.serverLoading.ssh = 100;
-      this.serverProgressData.ssh = 'Server is up and running!';
     });
   }
 
   checkPostgresStatus() {
     this.serverLoading.postgres = 0;
-    this.serverProgressData.postgres = 'Checking...';
-    this.statusService.getPostgresStatus().subscribe((response: any) => {
-      this.serverStatusData.postgres = response.body.message;
+    this.serverStatusData.postgres = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.postgres = response.body.postgres.message;
+      } else {
+        this.serverStatusData.postgres = 'Server is down!';
+      }
       this.serverLoading.postgres = 100;
-      this.serverProgressData.postgres = 'Server is up and running!';
     });
   }
 
-  checkBlogAPIStatus() {
+  checkBlogapiStatus() {
     this.serverLoading.blogapi = 0;
-    this.serverProgressData.blogapi = 'Checking...';
-    this.statusService.getBlogAPIStatus().subscribe((response: any) => {
-      this.serverStatusData.blogapi = response.body.message;
+    this.serverStatusData.blogapi = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.blogapi = response.body.blogAPI.message;
+      } else {
+        this.serverStatusData.blogapi = 'Server is down!';
+      }
       this.serverLoading.blogapi = 100;
-      this.serverProgressData.blogapi = 'Server is up and running!';
     });
   }
 
   checkYachtStatus() {
     this.serverLoading.yacht = 0;
-    this.serverProgressData.yacht = 'Checking...';
-    this.statusService.getYachtStatus().subscribe((response: any) => {
-      this.serverStatusData.yacht = response.body.message;
+    this.serverStatusData.yacht = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.yacht = response.body.yacht.message;
+      } else {
+        this.serverStatusData.yacht = 'Server is down!';
+      }
       this.serverLoading.yacht = 100;
-      this.serverProgressData.yacht = 'Server is up and running!';
     });
   }
 
-  checkEasyWGStatus() {
+  checkEasywgStatus() {
     this.serverLoading.easywg = 0;
-    this.serverProgressData.easywg = 'Checking...';
-    this.statusService.getEasyWGStatus().subscribe((response: any) => {
-      this.serverStatusData.easywg = response.body.message;
+    this.serverStatusData.easywg = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.easywg = response.body.easyWG.message;
+      } else {
+        this.serverStatusData.easywg = 'Server is down!';
+      }
       this.serverLoading.easywg = 100;
-      this.serverProgressData.easywg = 'Server is up and running!';
     });
   }
 
   checkWebminStatus() {
     this.serverLoading.webmin = 0;
-    this.serverProgressData.webmin = 'Checking...';
-    this.statusService.getWebminStatus().subscribe((response: any) => {
-      this.serverStatusData.webmin = response.body.message;
+    this.serverStatusData.webmin = 'Checking...';
+    this.statusService.getAPIStatus().subscribe((response: any) => {
+      if (response.status === 200) {
+        this.serverStatusData.webmin = response.body.webmin.message;
+      } else {
+        this.serverStatusData.webmin = 'Server is down!';
+      }
       this.serverLoading.webmin = 100;
-      this.serverProgressData.webmin = 'Server is up and running!';
     });
   }
 }
