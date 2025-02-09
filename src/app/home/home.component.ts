@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
   private resetProgress() {
     Object.keys(this.serverLoading).forEach((key) => {
       this.serverLoading[key] = 0;
-      this.serverStatusData[key] = 'Checking...';
+      this.serverStatusData[key] = 'Checked!';
     });
   }
 
