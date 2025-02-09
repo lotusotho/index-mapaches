@@ -1,6 +1,22 @@
 a {
   font-size: xx-large;
+  color: white;
+  text-decoration: none;
+}
+
+.all-link {
+  border: 2px solid orange;
+  background-color: orange;
+}
+
+.link {
   color: orange;
+  text-decoration: underline;
+}
+
+a[href="#"] {
+  color: white;
+  text-decoration: none;
 }
 
 .container {

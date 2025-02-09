@@ -5,6 +5,7 @@
     "protocol": "TCP",
     "address": "server.mapach.es",
     "url": "#",
+    "class": "all-link",
     "key": "all"
   },
   {
@@ -29,6 +30,7 @@
     "protocol": "TCP",
     "address": "server.mapach.es:3000",
     "url": "https://server.mapach.es:3000",
+    "class": "link",
     "key": "blogapi"
   },
   {
@@ -37,6 +39,7 @@
     "protocol": "TCP",
     "address": "server.mapach.es:8000",
     "url": "http://server.mapach.es:8000",
+    "class": "link",
     "key": "yacht"
   },
   {
@@ -45,6 +48,7 @@
     "protocol": "UDP",
     "address": "server.mapach.es:51820",
     "url": "http://server.mapach.es:51821",
+    "class": "link",
     "key": "easywg"
   },
   {
@@ -53,6 +57,7 @@
     "protocol": "TCP",
     "address": "server.mapach.es:10000",
     "url": "https://server.mapach.es:10000",
+    "class": "link",
     "key": "webmin"
   }
 ]
