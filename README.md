@@ -1,27 +1,33 @@
-# IndexMapaches
+# Index-Mapaches📜🔔
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Index-Mapaches is an Angular web application that displays server status and network information about the servers that I have hosted inside the domain **mapach.es**. 
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Built with Angular 18 SSR and custom CSS ([src/css/cs16.min.css](src/css/cs16.min.css)), which is based on the UI of Counter-Strike 1.6, by ekmas [cs16.css](https://github.com/ekmas/cs16.css).
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- Node.js (version as specified in [pnpm-lock.yaml](pnpm-lock.yaml))
+- PNPM package manager (as configured in [angular.json](angular.json))
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository.
+2. Install the dependencies:
+   ```sh
+   pnpm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Development
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- To serve the application in development mode, run:
+  ```sh
+  pnpm run start
+  ```
+- To build the project for production, execute:
+  ```sh
+  pnpm run build
+  ```
