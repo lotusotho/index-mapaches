@@ -1,0 +1,13 @@
+<div
+  *ngFor="let card of serverCards"
+  (click)="playSelectAudio(); checkCardStatus(card.key)"
+  class="container cs-btn"
+>
+  <h2>{{ card.title }}</h2>
+  <h3>Puerto {{ card.port }} - {{ card.protocol }}</h3>
+  <a>{{ card.address }}</a>
+  <div class="container cs-progress-bar">
+    <div [style.width.%]="serverLoading[card.key]" class="bars"></div>
+  </div>
+  <p>{{ serverStatusData[card.key] }}</p>
+</div>

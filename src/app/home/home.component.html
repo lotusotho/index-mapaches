@@ -3,72 +3,10 @@
   <span class="rainbow rainbow_text_animated">mapach.es</span>
 </h1>
 <hr class="cs-hr" />
-<div (click)="playSelectAudio(); checkAPIStatus()" class="container cs-btn">
-  <h2>Check Server.Mapach.es (ALL)</h2>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.ssh" class="bars"></div>
-  </div>
-</div>
-
-<div (click)="playSelectAudio(); checkSSHStatus()" class="container cs-btn">
-  <h2>Servidor SSH</h2>
-  <h3>Puerto 22 - TCP</h3>
-  <a>server.mapach.es:22</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.ssh" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.ssh }}</p>
-</div>
-
-<div
-  (click)="playSelectAudio(); checkPostgresStatus()"
-  class="container cs-btn"
+<app-button
+  [serverCards]="serverCards"
+  [serverStatusData]="serverStatusData"
+  [serverLoading]="serverLoading"
+  (cardCheck)="handleCardCheck($event)"
 >
-  <h2>Servidor PostgreSQL</h2>
-  <h3>Puerto 5432 - TCP</h3>
-  <a>server.mapach.es:5432</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.postgres" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.postgres }}</p>
-</div>
-
-<div (click)="playSelectAudio(); checkBlogapiStatus()" class="container cs-btn">
-  <h2>Servidor Blog API</h2>
-  <h3>Puerto 3000 - TCP</h3>
-  <a>server.mapach.es:3000</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.blogapi" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.blogapi }}</p>
-</div>
-
-<div (click)="playSelectAudio(); checkYachtStatus()" class="container cs-btn">
-  <h2>Servidor Yacht</h2>
-  <h3>Puerto 8000 - TCP</h3>
-  <a>server.mapach.es:8000</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.yacht" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.yacht }}</p>
-</div>
-
-<div (click)="playSelectAudio(); checkEasywgStatus()" class="container cs-btn">
-  <h2>Servidor Easy-WG</h2>
-  <h3>Puerto 51820 - UDP</h3>
-  <a>server.mapach.es:51820</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.easywg" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.easywg }}</p>
-</div>
-
-<div (click)="playSelectAudio(); checkWebminStatus()" class="container cs-btn">
-  <h2>Servidor Webmin</h2>
-  <h3>Puerto 10000 - TCP</h3>
-  <a>server.mapach.es:10000</a>
-  <div class="container cs-progress-bar">
-    <div [style.width.%]="serverLoading.webmin" class="bars"></div>
-  </div>
-  <p>{{ serverStatusData.webmin }}</p>
-</div>
+</app-button>

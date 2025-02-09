@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StatusService } from '../services/status.service';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  serverCards: any[] = [];
+
   serverStatusData: any = {
     ssh: '',
     postgres: '',
@@ -18,6 +21,7 @@ export class HomeComponent {
     webmin: '',
   };
   serverLoading: any = {
+    all: 0,
     ssh: 0,
     postgres: 0,
     blogapi: 0,
@@ -28,12 +32,48 @@ export class HomeComponent {
 
   constructor(private statusService: StatusService) {}
 
+  ngOnInit(): void {
+    this.loadServerCards();
+  }
+
   playSelectAudio() {
     const selectAudio = new Audio('assets/audio/select.mp3');
     selectAudio.play();
   }
 
+  handleCardCheck(key: string) {
+    switch (key) {
+      case 'all':
+        this.checkAPIStatus();
+        break;
+      case 'ssh':
+        this.checkSSHStatus();
+        break;
+      case 'postgres':
+        this.checkPostgresStatus();
+        break;
+      case 'blogapi':
+        this.checkBlogapiStatus();
+        break;
+      case 'yacht':
+        this.checkYachtStatus();
+        break;
+      case 'easywg':
+        this.checkEasywgStatus();
+        break;
+      case 'webmin':
+        this.checkWebminStatus();
+        break;
+    }
+  }
+
   /* Function to check all servers at once */
+  loadServerCards() {
+    this.statusService.getServerCards().subscribe((data: any) => {
+      this.serverCards = data;
+    });
+  }
+
   checkAPIStatus() {
     this.resetProgress();
     this.statusService.getAPIStatus().subscribe((response: any) => {

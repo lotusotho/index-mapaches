@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Check Server Status (ALL)",
+    "port": "--",
+    "protocol": "TCP",
+    "address": "server.mapach.es",
+    "key": "all"
+  },
+  {
+    "title": "SSH Server",
+    "port": "22",
+    "protocol": "TCP",
+    "address": "server.mapach.es:22",
+    "key": "ssh"
+  },
+  {
+    "title": "PostgreSQL Server",
+    "port": "5432",
+    "protocol": "TCP",
+    "address": "server.mapach.es:5432",
+    "key": "postgres"
+  },
+  {
+    "title": "Blog API Server",
+    "port": "3000",
+    "protocol": "TCP",
+    "address": "server.mapach.es:3000",
+    "key": "blogapi"
+  },
+  {
+    "title": "Yacht Server",
+    "port": "8000",
+    "protocol": "TCP",
+    "address": "server.mapach.es:8000",
+    "key": "yacht"
+  },
+  {
+    "title": "Easy-WG Server",
+    "port": "51820",
+    "protocol": "UDP",
+    "address": "server.mapach.es:51820",
+    "key": "easywg"
+  },
+  {
+    "title": "Webmin Server",
+    "port": "10000",
+    "protocol": "TCP",
+    "address": "server.mapach.es:10000",
+    "key": "webmin"
+  }
+]
