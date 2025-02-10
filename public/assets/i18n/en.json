@@ -26,10 +26,10 @@
   },
   {
     "title": "Blog API Server",
-    "port": "3000",
+    "port": "443",
     "protocol": "TCP",
-    "address": "server.mapach.es:3000",
-    "url": "https://server.mapach.es:3000",
+    "address": "blog.server.mapach.es",
+    "url": "https://blog.server.mapach.es",
     "class": "link",
     "key": "blogapi"
   },
