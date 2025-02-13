@@ -46,7 +46,7 @@
     "title": "Easy-WG Server",
     "port": "51820",
     "protocol": "UDP",
-    "address": "server.mapach.es:51820",
+    "address": "server.mapach.es:51821",
     "url": "http://server.mapach.es:51821",
     "class": "link",
     "key": "easywg"
