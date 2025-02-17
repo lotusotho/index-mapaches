@@ -12,7 +12,7 @@ export class StatusService {
   constructor(private httpClient: HttpClient) {}
 
   getAPIStatus(): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/status`, {
+    return this.httpClient.get(`${this.API_URL}/health`, {
       observe: 'response',
     });
   }
