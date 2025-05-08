@@ -17,14 +17,6 @@
     "key": "ssh"
   },
   {
-    "title": "PostgreSQL Server",
-    "port": "5432",
-    "protocol": "TCP",
-    "address": "server.mapach.es:5432",
-    "url": "#",
-    "key": "postgres"
-  },
-  {
     "title": "Blog API Server",
     "port": "443",
     "protocol": "TCP",
